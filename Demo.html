@@ -22,20 +22,32 @@
 				left: 0;
 				right: 0;
 			}
+			
+			.Palete{
+				height: 100%;
+				margin-top: 500px;
+				position: relative;
+				top: 100%;
+				left: 0;
+				right: 0;
+				-webkit-box-align:center;
+				-webkit-box-pack:center;
+				display:-webkit-box;
+			}
 		</style>
 		<script>
 				/*
 					Array Structure = [[Blank/Teal/Green/Pink/Yellow]]
 					Rocks = 0 , Lights = 1 , tip1 = 2 , tip2 = 3 , tower1 = 4 , tower2 = 5
 				*/
-				var currCol = 1; //Current Colour for the brush
+				var currCol = 0; //Current Colour for the brush
 				var colourSources = [
 					["Assets/Rocks.png","Assets/Rocks_1.png","Assets/Rocks_2.png","Assets/Rocks_3.png","Assets/Rocks_4.png"], //Rock
 					["Assets/Light.png","Assets/Light_1.png","Assets/Light_2.png","Assets/Light_3.png","Assets/Light_4.png"],//Light
-					[],//Tip_1
-					[],//Tip_2
-					[],//Tower_1
-					[]//Tower_2
+					["Assets/Tip_1.png","Assets/Tip_1_1.png","Assets/Tip_1_2.png","Assets/Tip_1_3.png","Assets/Tip_1_4.png"],//Tip_1
+					["Assets/Tip_2.png","Assets/Tip_2_1.png","Assets/Tip_2_2.png","Assets/Tip_2_3.png","Assets/Tip_2_4.png"],//Tip_2
+					["Assets/Tower_1.png","Assets/Tower_1_1.png","Assets/Tower_1_2.png","Assets/Tower_1_3.png","Assets/Tower_1_4.png"],//Tower_1
+					["Assets/Tower_2.png","Assets/Tower_2_1.png","Assets/Tower_2_2.png","Assets/Tower_2_3.png","Assets/Tower_2_4.png"]//Tower_2
 				];
 				
 				function switchCol(Set,ID){
@@ -74,8 +86,12 @@
 					<area title="tip2" onclick="switchCol(3,'tip_2')" shape="poly" coords="138,91,138,45,197,43,191,89" />
 					<area title="light" onclick="switchCol(1,'light')" shape="poly" coords="193,75,198,95,415,212,412,0" />
 				</map>
-			<div class="row">
-		</div>
+			<div class="Palete">
+					<img id="teal" src="Assets/palete icons/teal.png" class="img-circle" onclick="setCol(1)">
+					<img id="green" src="Assets/palete icons/green.png" class="img-circle" onclick="setCol(2)">
+					<img id="pink" src="Assets/palete icons/pink.png" class="img-circle" onclick="setCol(3)">
+					<img id="yellow" src="Assets/palete icons/yellow.png" class="img-circle" onclick="setCol(4)">
+			</div>
 		</div>
 	</body>
 </html>
