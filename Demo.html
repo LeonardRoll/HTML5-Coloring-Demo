@@ -28,17 +28,23 @@
 					Array Structure = [[Blank/Teal/Green/Pink/Yellow]]
 					Rocks = 0 , Lights = 1 , tip1 = 2 , tip2 = 3 , tower1 = 4 , tower2 = 5
 				*/
+				var currCol = 1; //Current Colour for the brush
 				var colourSources = [
-					["Assets/Rocks.png","Assets/Rocks_1.png","Assets/Rocks_2.png"], //Rock
-					[],//Light
+					["Assets/Rocks.png","Assets/Rocks_1.png","Assets/Rocks_2.png","Assets/Rocks_3.png","Assets/Rocks_4.png"], //Rock
+					["Assets/Light.png","Assets/Light_1.png","Assets/Light_2.png","Assets/Light_3.png","Assets/Light_4.png"],//Light
 					[],//Tip_1
 					[],//Tip_2
 					[],//Tower_1
 					[]//Tower_2
 				];
-				function switchCol(){
-					var imgtoswitch = document.getElementById("rocks");
-					imgtoswitch.src = colourSources[0][0];
+				
+				function switchCol(Set,ID){
+					var imgtoswitch = document.getElementById(ID);
+					imgtoswitch.src = colourSources[Set][currCol];
+				}
+				
+				function setCol(num){
+					currCol = num;
 				}
 		</script>
 	</head>
@@ -46,12 +52,12 @@
 		<div id="container">
 			<h1>Colour the Lighthouse</h1>
 				<div class="image_container">
-					<img id="light" src="Assets/Light.png">
-					<img id="tip_1" src="Assets/Tip_1.png">
-					<img id="tip_2" src="Assets/Tip_2.png">
-					<img id="tower_1" src="Assets/Tower_1.png">
-					<img id="tower_2" src="Assets/Tower_2.png">
-					<img id="rocks" src="Assets/Rocks_1.png">
+					<img id="light">
+					<img id="tip_1">
+					<img id="tip_2">
+					<img id="tower_1">
+					<img id="tower_2">
+					<img id="rocks">
 					<img src="Assets/Lighthouse.png" usemap="#Map" /><!--This is an image that has is transparent so that the images behind it can be seen and the colour changes by changing the images behind this image-->
 				</div>
 				<!--
@@ -59,14 +65,14 @@
 					This map was made using an image map generator
 				-->
 				<map name="Map" id="Map">
-					<area title="rocks" href="#" onclick="switchCol()" shape="poly" coords="0,383,20,366,39,356,50,343,64,333,69,322,89,306,99,296,113,283,129,278,137,276,144,280,151,287,160,290,175,291,184,293,196,294,203,296,214,302,221,308,232,316,237,319,246,326,254,330,266,339,271,340,279,337,292,330,298,326,308,320,314,321,321,325,328,325,335,325,342,327,350,332,355,335,361,341,370,346,377,349,383,356,386,362,394,367,398,374,405,378,409,381,404,383,371,383,350,387,366,397,381,405,392,411,398,415,392,418,355,418,320,419,327,426,328,433,289,432,258,432,207,424,186,426,168,430,146,433,124,432,91,429,68,424,61,412,65,403,51,396,38,391" />
-					<area title="tower1" href="#" shape="poly" coords="148,280,165,269,179,257,191,241,202,224,206,217,209,243,209,261,212,280,213,296" />
-					<area title="tower1" href="#" shape="poly" coords="127,206,146,195,170,169,189,146,198,137,191,112,169,111,145,134,133,147" />
-					<area title="tower2" href="Assets/Tower_2.png" shape="poly" coords="127,207,146,196,162,179,186,151,197,138,201,163,202,194,203,213,180,245,162,261,148,276,122,272" />
-					<area title="tower2" href="Assets/Tower_2.png" shape="poly" coords="132,108,134,141,159,111" />
-					<area title="tip1" href="#" shape="poly" coords="129,97,195,96,197,112,128,107" />
-					<area title="tip2" href="#" shape="poly" coords="138,91,138,45,197,43,191,89" />
-					<area title="light" href="#" shape="poly" coords="193,75,198,95,415,212,412,0" />
+					<area title="rocks" onclick="switchCol(0,'rocks')" shape="poly" coords="0,383,20,366,39,356,50,343,64,333,69,322,89,306,99,296,113,283,129,278,137,276,144,280,151,287,160,290,175,291,184,293,196,294,203,296,214,302,221,308,232,316,237,319,246,326,254,330,266,339,271,340,279,337,292,330,298,326,308,320,314,321,321,325,328,325,335,325,342,327,350,332,355,335,361,341,370,346,377,349,383,356,386,362,394,367,398,374,405,378,409,381,404,383,371,383,350,387,366,397,381,405,392,411,398,415,392,418,355,418,320,419,327,426,328,433,289,432,258,432,207,424,186,426,168,430,146,433,124,432,91,429,68,424,61,412,65,403,51,396,38,391" />
+					<area title="tower1" onclick="switchCol(4,'tower_1')" shape="poly" coords="148,280,165,269,179,257,191,241,202,224,206,217,209,243,209,261,212,280,213,296" />
+					<area title="tower1" onclick="switchCol(4,'tower_1')" shape="poly" coords="127,206,146,195,170,169,189,146,198,137,191,112,169,111,145,134,133,147" />
+					<area title="tower2" onclick="switchCol(5,'tower_2')" shape="poly" coords="127,207,146,196,162,179,186,151,197,138,201,163,202,194,203,213,180,245,162,261,148,276,122,272" />
+					<area title="tower2" onclick="switchCol(5,'tower_2')" shape="poly" coords="132,108,134,141,159,111" />
+					<area title="tip1" onclick="switchCol(2,'tip_1')" shape="poly" coords="129,97,195,96,197,112,128,107" />
+					<area title="tip2" onclick="switchCol(3,'tip_2')" shape="poly" coords="138,91,138,45,197,43,191,89" />
+					<area title="light" onclick="switchCol(1,'light')" shape="poly" coords="193,75,198,95,415,212,412,0" />
 				</map>
 			<div class="row">
 		</div>
